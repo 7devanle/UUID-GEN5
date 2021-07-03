@@ -1,7 +1,8 @@
 package com.example.demo;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,20 +10,17 @@ import javax.persistence.Id;
 @Entity
 public class UUIDClass {
 	@Id
-	private int id;
-	private UUID uuid = UUID.randomUUID();
-	private LocalDate date;
-	private LocalTime time;
+	private UUID uuid; 
+	private LocalDateTime now;
+	private String timenow; 
 	
-	
-	public int getId() {
-		return id;
+	public UUIDClass() {
+		super();
+		this.uuid = UUID.randomUUID();
+		this.now = LocalDateTime.now();
+		this.timenow = now.toString();
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 	public UUID getUuid() {
 		return uuid;
 	}
@@ -31,28 +29,9 @@ public class UUIDClass {
 		this.uuid = uuid;
 	}
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
-	public LocalTime getTime() {
-		return time;
-	}
-
-	public void setTime(LocalTime time) {
-		this.time = time;
-	}
-	
-	public void getUUID() {
-		System.out.println(uuid + "\n" + date+"  " + time);
-	}
-
 	@Override
 	public String toString() {
-		return "UUIDClass [id=" + id + ", uuid=" + uuid + ", date=" + date + ", time=" + time + "]";
+		return "UUIDClass [uuid=" + uuid + ", timenow=" + timenow + "]";
 	}
+	
 }

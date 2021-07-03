@@ -24,14 +24,17 @@ public class controller {
 //		repo.findAll().toString();
 //		return mv;
 //	}
-	@RequestMapping("lists")
-	public String lists(UUIDClass uuid) {
-		repo.save(uuid);
-		return "generate";
-	}
+//	@RequestMapping("lists")
+//	public String lists(UUIDClass uuid) {
+//		uuid = new UUIDClass();
+//		repo.save(uuid);
+//	}
+	
 	@RequestMapping("list")
 	@ResponseBody
-	public String list() {
+	public String list(UUIDClass uuid) {
+		uuid = new UUIDClass();
+		repo.save(uuid);
 		return repo.findAll().toString();
 	}
 
