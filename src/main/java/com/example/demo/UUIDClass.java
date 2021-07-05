@@ -11,16 +11,13 @@ import javax.persistence.Id;
 public class UUIDClass {
 	@Id
 	private UUID uuid; 
-	private LocalDateTime now;
-	private String timenow; 
+	private LocalDateTime time;
 	
 	public UUIDClass() {
-		super();
 		this.uuid = UUID.randomUUID();
-		this.now = LocalDateTime.now();
-		this.timenow = now.toString();
+		this.time = LocalDateTime.now();
 	}
-
+	
 	public UUID getUuid() {
 		return uuid;
 	}
@@ -28,10 +25,19 @@ public class UUIDClass {
 	public void setUuid(UUID uuid) {
 		this.uuid = uuid;
 	}
+	
+	public LocalDateTime getTime() {
+		return time;
+	}
+
+	public void setTime(LocalDateTime time) {
+		this.time = time;
+	}
 
 	@Override
 	public String toString() {
-		return "UUIDClass [uuid=" + uuid + ", timenow=" + timenow + "]";
+		return "UUIDClass [uuid=" + uuid + ", time=" + time + "]";
 	}
+	
 	
 }
