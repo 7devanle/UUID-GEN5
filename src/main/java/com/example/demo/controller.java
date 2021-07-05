@@ -32,6 +32,7 @@ public class controller {
 //		repo.save(uuid);
 //	}
 	
+//	generate uuid and print existing ones
 	@RequestMapping("")
 	@ResponseBody
 	public List<UUIDClass> list(UUIDClass uuid) {
@@ -40,24 +41,27 @@ public class controller {
 		return repo.findAll();
 	}
 	
+//	get existing UUIDs and time in list format
 	@RequestMapping("uuids")
 	@ResponseBody
 	public List<UUIDClass> listOfUuids() {
 		return repo.findAll();
 	}
 	
+//	get single uuid and time
 	@RequestMapping("uuids/{uuid}")
 	@ResponseBody
 	public Optional<UUIDClass> listOfUuids(@PathVariable("uuid") UUID uuid) {
 		return repo.findById(uuid);
 	}
 	
+//	create a uuid
 	@PostMapping("/createuuid")
 	public UUIDClass creatUuid(@RequestBody UUIDClass uuid) {
 		repo.save(uuid);
 		return uuid;
 	}
-	
+//	delele a uuid
 	@DeleteMapping("/deleteuuid/{uuid}")
 	public UUIDClass deleteuuid(@PathVariable("uuid") UUID uuid) {
 		UUIDClass uuuid = repo.getById(uuid);
@@ -65,6 +69,7 @@ public class controller {
 		return uuuid;
 	}
 	
+//	update uuid
 	@PutMapping(path= "/updateuuid", consumes= {"application/json"})
 	public UUIDClass updateuuid(@RequestBody UUIDClass uuid) {
 		repo.save(uuid);
