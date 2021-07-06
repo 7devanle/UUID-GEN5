@@ -14,24 +14,6 @@ public class controller {
 	@Autowired 
 	UuidRepo repo;
 	
-//	@RequestMapping("/")
-//	public String generate() {
-//		return "generate";
-//	}
-	
-//	@RequestMapping("/list")
-//	@ResponseBody
-//	public ModelAndView lists(@RequestParam UUID uuid) {
-//		ModelAndView mv = new ModelAndView("lists");
-//		repo.findAll().toString();
-//		return mv;
-//	}
-//	@RequestMapping("lists")
-//	public String lists(UUIDClass uuid) {
-//		uuid = new UUIDClass();
-//		repo.save(uuid);
-//	}
-	
 //	generate uuid and print existing ones
 	@RequestMapping("")
 	@ResponseBody
@@ -75,8 +57,5 @@ public class controller {
 		repo.save(uuid);
 		return uuid;
 	}
-	
-	
-	
 	
 }
