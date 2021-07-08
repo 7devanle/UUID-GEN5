@@ -3,21 +3,21 @@ package com.example.demo;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class controller {
+public class UUIDController {
+	
 	@Autowired 
 	UuidRepo repo;
 	
 //	generate uuid and print existing ones
 	@RequestMapping("")
 	@ResponseBody
-	public List<UUIDClass> list(UUIDClass uuid) {
+	public List<UUIDClass> list(@RequestParam()UUIDClass uuid) {
 		uuid = new UUIDClass();
 		repo.save(uuid);
 		return repo.findAll();
