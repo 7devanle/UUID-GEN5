@@ -5,12 +5,14 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
 
 @DataJpaTest
 class TestController {
@@ -26,24 +28,34 @@ class TestController {
 		assertEquals(1, repo.count());
 	}
 
-//	@Test
-//	void testListOfUuids() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	void testListOfUuids() {
+		UUIDClass uuid = Mockito.mock(UUIDClass.class);
+		when(repo.findAll()).thenReturn(Arrays.asList(uuid));
+		assertEquals(1, repo.count());
+	}
 //
 //	@Test
 //	void testListOfUuidsUUID() {
-//		fail("Not yet implemented");
+//		UUIDClass uuid = Mockito.mock(UUIDClass.class);
+//		when(repo.findById(uuid)).thenReturn(uuid);
+//		assertEquals(1, repo.count());
 //	}
-//
-//	@Test
-//	void testCreatUuid() {
-//		fail("Not yet implemented");
-//	}
-//
+
+	@Test
+	void testCreatUuid() {
+		UUIDClass uuid = Mockito.mock(UUIDClass.class);
+		when(repo.save(Mockito.any(UUIDClass.class))).thenReturn(uuid);
+		UUIDController uuidController = new UUIDController();
+		assertEquals(uuid, uuidController.creatUuid(uuid));
+	}
+
 //	@Test
 //	void testDeleteuuid() {
-//		fail("Not yet implemented");
+//		UUIDClass uuid = Mockito.mock(UUIDClass.class);
+//		when(repo.delete(Mockito.any(UUIDClass.class))).thenReturn(uuid);
+//		UUIDController uuidController = new UUIDController();
+//		assertEquals(uuid, uuidController.creatUuid(uuid));
 //	}
 //
 //	@Test
